@@ -6,7 +6,7 @@ import cv2
 import numpy as np
 
 def change(path) :
-    dll = ctypes.WinDLL("../background_melon/x64/Debug/background_melon.dll")
+    dll = ctypes.WinDLL("../background_melon/background_melon.dll")
 
     changeBackgroundImage = dll["changeBackgroundImage"]
     changeBackgroundImage.argtypes = [ctypes.c_char_p]
@@ -17,7 +17,7 @@ option.add_argument("headless")
 option.add_argument("--disable-gpu")
 option.add_argument("lang=ko_KR")
 
-wd = webdriver.Chrome("C:/Users/muns3/Downloads/chromedriver_win32/chromedriver.exe", chrome_options=option)
+wd = webdriver.Chrome("./chromedriver.exe", chrome_options=option)
 wd.get("https://www.melon.com/chart/index.htm")
 
 time.sleep(1)
@@ -37,4 +37,4 @@ for i in range(1, 4) :
 image = image[50:500]
 cv2.imwrite("../images/result.png", image)
 
-change("C:/Users/muns3/OneDrive/Desktop/cpp-project/background_melon/images/result.png")
+change("../images/result.png")
