@@ -35,6 +35,6 @@ for i in range(1, 4) :
         image = np.concatenate((image, cv2.imread("../images/melon" + str(i) + ".png")[:, 50:300]), axis=1)
 
 image = image[50:500]
-cv2.imwrite("../images/result.png", image)
+cv2.imwrite("C:/Users/Public/result.png", image)
 
-change("../images/result.png")
+ctypes.windll.user32.SystemParametersInfoW(20, 0, "C:/Users/Public/result.png" , 0)
